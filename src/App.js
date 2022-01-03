@@ -8,7 +8,7 @@ function App() {
   return (
     <div className="App">
       <h1>
-        Initial build Snapchat
+       Napchat
         <WebcamCapture/>
       </h1>
     </div>
