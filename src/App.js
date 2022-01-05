@@ -26,7 +26,7 @@ function App() {
             
           </Route>
           <Route path = "/preview" element = { <Preview/> }>
-            <Preview/>
+            {/* <Preview/> */}
           </Route>
         </Routes>
       </div>
