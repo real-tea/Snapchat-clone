@@ -13,6 +13,9 @@ import CropIcon from '@material-ui/icons/Crop';
 import TimerIcon from '@material-ui/icons/Timer';
 import SendIcon from '@material-ui/icons/Send';
 
+import { v4 as uuid } from 'uuid';
+import { storage } from './firebase';
+
 
 const Preview = () => {
 
@@ -30,6 +33,11 @@ const Preview = () => {
         dispatch(resetCameraImage());
         
     }
+    
+    const sendPost = () => {
+        const id = uuid(); 
+        const uploadTask = storage.ref(`posts/${id}`).putString(cameraImage,"data_url") 
+    }
 
     return (
         <div className = "previewImage">            
@@ -45,9 +53,9 @@ const Preview = () => {
             </div>
 
             <img src = { cameraImage }/>
-            <div classname =  "preview__footer">
+            <div className =  "preview__footer">
                 <h2>Send Now</h2>
-                <SendIcon className = "preview__sendIcon"/>
+                <SendIcon onClick = { sendPost } font-size = "small" className = "preview__sendIcon"/>
                 
             </div>
         </div>
