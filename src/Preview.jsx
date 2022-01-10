@@ -56,14 +56,14 @@ const Preview = () => {
                     imageUrl : url,
                     username : "Akash",
                     read : false,
-                    // timestamp : firebase.firestore.FieldValue.serverTimestamp(),
+                    timestamp : firebase.firestore.FieldValue.serverTimestamp(),
                     //profile pic -> after firebase authentication 
                 });
-                navigate('/chats');
+                navigate("/chats");
             }); 
         }
     );
-    }
+    };
 
     return (
         <div className = "previewImage">            
@@ -78,10 +78,10 @@ const Preview = () => {
                 <TimerIcon/>
             </div>
 
-            <img src = { cameraImage }/>
-            <div className =  "preview__footer">
+            <img src = { cameraImage } alt = " "/>
+            <div onClick = { sendPost } className =  "preview__footer">
                 <h2>Send Now</h2>
-                <SendIcon onClick = { sendPost } font-size = "small" className = "preview__sendIcon"/>
+                <SendIcon font-size = "small" className = "preview__sendIcon"/>
                 
             </div>
         </div>
