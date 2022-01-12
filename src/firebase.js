@@ -1,7 +1,11 @@
-import { initializeApp } from 'firebase/app';
-import { getFirestore } from "firebase/firestore/lite"
-import { getAuth } from 'firebase/auth';
-import { getStorage } from 'firebase/storage';
+// import { initializeApp } from 'firebase/app';
+// import { getFirestore } from "firebase/firestore/lite"
+// import { getAuth } from 'firebase/auth';
+// import { getStorage } from 'firebase/storage';
+import firebase from 'firebase/compat/app';
+import 'firebase/compat/auth';
+import 'firebase/compat/firestore';
+import 'firebase/compat/storage';
 // import 'firebase/compat/firestore';
 
 const firebaseConfig = {
@@ -13,12 +17,13 @@ const firebaseConfig = {
     appId: "1:250514082696:web:a70ea96c22c9d9c0b6c83d"
   };
 
-const app = initializeApp(firebaseConfig)
-const db = getFirestore(app);
+const firebaseApp = firebase.initializeApp(firebaseConfig);
 
-const auth = getAuth();
-const storage = getStorage(app)
+const db = firebaseApp.firestore();
+const auth = firebase.auth();
+
+const storage = firebase.storage();
 // const provider = new firebase.auth.GoogleAuthProvider();
 
-export { db , auth , storage   };
+export { db , auth , storage };
 //provider not exported above

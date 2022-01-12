@@ -12,10 +12,12 @@ import AttachFileIcon from '@material-ui/icons/AttachFile';
 import CropIcon from '@material-ui/icons/Crop';
 import TimerIcon from '@material-ui/icons/Timer';
 import SendIcon from '@material-ui/icons/Send';
-
+// import * as firebase from 'firebase/app';
 import { v4 as uuid } from 'uuid';
 import { storage , db } from './firebase';
 import firebase from 'firebase/compat/app';
+// import storage from 'firebase/storage';
+
 
 const Preview = () => {
 
@@ -81,7 +83,7 @@ const Preview = () => {
             <img src = { cameraImage } alt = " "/>
             <div onClick = { sendPost } className =  "preview__footer">
                 <h2>Send Now</h2>
-                <SendIcon font-size = "small" className = "preview__sendIcon"/>
+                <SendIcon fontSize = "small" className = "preview__sendIcon"/>
                 
             </div>
         </div>
