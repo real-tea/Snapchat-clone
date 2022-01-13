@@ -9,6 +9,7 @@ import {
 import './App.css';
 import WebcamCapture from './WebcamCapture';
 import Preview from './Preview';
+import Chats from './Chats';
 
 
 function App() {
@@ -20,8 +21,8 @@ function App() {
 
         {/* A <Switch> looks through its children <Route>s and
             renders the first one that matches the current URL. */}
-        <Routes>
-          
+        <Routes> {/* changed from Switch to routes in react-router-dom v6?  */}
+          <Route path = "/chats" element = { <Chats/> }></Route>
           <Route exact path="/" element = { <WebcamCapture/> }>
             
           </Route>
