@@ -16,6 +16,9 @@ const Chats = () => {
                 <ChatBubbleIcon className = "chat__chatIcon"/>
                 
             </div>
+            <div className = "chats__posts">
+                <h2>HELOO</h2>
+            </div>
         </div>
     )
 }
