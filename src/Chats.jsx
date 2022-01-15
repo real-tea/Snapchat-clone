@@ -1,9 +1,25 @@
+import { useState , useEffect} from 'react';
 import './chats.css';
 import { Avatar } from "@material-ui/core";
 import SearchIcon from "@material-ui/icons/Search";
 import ChatBubbleIcon from "@material-ui/icons/ChatBubble";
+import { db } from './firebase';
+import Chat from './Chat';
+
 
 const Chats = () => {
+
+    const [ posts , setPosts ] = useState([]);
+
+    useEffect(() =>{
+        db.collection('posts').orderBy('timestamp','desc').onSnapshot((snap )=>
+            setPosts(snap.docs.map((doc) =>({ 
+                id : doc.id,
+                data : doc.data(),
+            })))
+        )     
+    },[])
+
     return (
         <div className = "chats">
             <div className = "chats__header">
@@ -17,7 +33,21 @@ const Chats = () => {
                 
             </div>
             <div className = "chats__posts">
-                <h2>HELOO</h2>
+                {posts.map(({
+                    id,
+                    data : {profilePic , username , timestamp , imageUrl , read},
+                }) =>(
+                    <Chat
+                    key = {id}
+                    id = {id}
+                    username = {username}
+                    timestamp = {timestamp}
+                    profilPic = {profilePic}
+                    imageurl = {imageUrl}
+                    read = { read} 
+                    />
+                )
+                ) }
             </div>
         </div>
     )
