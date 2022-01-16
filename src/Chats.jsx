@@ -43,7 +43,7 @@ const Chats = () => {
                     username = {username}
                     timestamp = {timestamp}
                     profilPic = {profilePic}
-                    imageurl = {imageUrl}
+                    imageUrl = {imageUrl}
                     read = { read} 
                     />
                 )

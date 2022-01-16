@@ -10,6 +10,7 @@ import './App.css';
 import WebcamCapture from './WebcamCapture';
 import Preview from './Preview';
 import Chats from './Chats';
+import ChatView from './ChatView';
 
 
 function App() {
@@ -23,12 +24,11 @@ function App() {
             renders the first one that matches the current URL. */}
         <Routes> {/* changed from Switch to routes in react-router-dom v6?  */}
           <Route path = "/chats" element = { <Chats/> }></Route>
-          <Route exact path="/" element = { <WebcamCapture/> }>
-            
-          </Route>
+          <Route exact path="/" element = { <WebcamCapture/> }></Route>
           <Route path = "/preview" element = { <Preview/> }>
             {/* <Preview/> */}
           </Route>
+          <Route path = "/chats/view" element = { <ChatView/> }></Route>
         </Routes>
       </div>
     </Router>
