@@ -8,6 +8,7 @@ import { useDispatch } from 'react-redux';
 import { db } from './firebase';
 import { useNavigate } from 'react-router-dom';
 
+
 const Chat = (props) => {
 
     const dispatch = useDispatch();
@@ -41,6 +42,7 @@ const Chat = (props) => {
 
                 {!props.read && <StopRoundedIcon className = "chat__readIcon"/>}
 
+                  
         </div>
     )
 }

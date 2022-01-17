@@ -5,6 +5,7 @@
     padding-top : 8px;
     border-bottom: 1px solid whitesmoke;
     cursor : pointer;
+    padding-left : 8px;
 }
 
 .chat:hover{
