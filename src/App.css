@@ -4,4 +4,5 @@
     align-items : center;
     background-color : #fefc01 ;
     height : 100vh;
+    overflow : hidden;
 }

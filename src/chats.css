@@ -63,13 +63,18 @@
 }
 
 .chats__takePicIcon{
-    position : absolute;
+    position : relative;
     background-color : white;
     border-radius : 200px;
     color : gray;
     font-size : 40px !important;
     cursor : pointer;
-    bottom : 0;
+    bottom : 23px;
     left : 50%;
     transform : translate(-50%,-50%);
 }
+
+.chats__takePicIcon:hover{
+    opacity : 0.5;
+}
+

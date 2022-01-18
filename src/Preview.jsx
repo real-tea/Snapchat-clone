@@ -17,12 +17,13 @@ import { v4 as uuid } from 'uuid';
 import { storage , db } from './firebase';
 import firebase from 'firebase/compat/app';
 // import storage from 'firebase/storage';
-
+import { selectUser } from './features/appSlice';
 
 const Preview = () => {
 
     const navigate = useNavigate();
     const dispatch = useDispatch();
+    const user = useSelector(selectUser);
 
     const cameraImage = useSelector(selectCameraImage);
     useEffect(()=>{
@@ -59,6 +60,7 @@ const Preview = () => {
                     username : "Akash",
                     read : false,
                     timestamp : firebase.firestore.FieldValue.serverTimestamp(),
+                    profilePic : user.ProfilePic
                     //profile pic -> after firebase authentication 
                 });
                 navigate("/chats");

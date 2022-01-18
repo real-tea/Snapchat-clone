@@ -5,15 +5,18 @@ import SearchIcon from "@material-ui/icons/Search";
 import ChatBubbleIcon from "@material-ui/icons/ChatBubble";
 import { db } from './firebase';
 import Chat from './Chat';
-import { useSelector } from 'react-redux';
+import { useSelector , useDispatch } from 'react-redux';
 import { selectUser } from './features/appSlice';
 import RadioButtonUncheckedIcon from '@material-ui/icons/RadioButtonUnchecked';
-
+import { useNavigate } from 'react-router-dom';
+import { resetCameraImage } from './features/cameraSlice';
 
 const Chats = () => {
 
     const [ posts , setPosts ] = useState([]);
     const user = useSelector(selectUser);
+    const dispatch = useDispatch();
+    const Navigate = useNavigate();
 
     useEffect(() =>{
         db.collection('posts').orderBy('timestamp','desc').onSnapshot((snap )=>
@@ -27,7 +30,8 @@ const Chats = () => {
     
 
     const takeSnap = () =>{
-
+        dispatch(resetCameraImage());
+        Navigate("/")
     }
 
     return (
@@ -37,7 +41,7 @@ const Chats = () => {
                     user.signOut();
                 } }className = "chats__avatar"/>
                 <div className = "chats__search">
-                    <SearchIcon/>
+                    <SearchIcon className = "chats__SearchIcon"/>
                     <input placeholder = "friends" type = "text"/>
             
                 </div>

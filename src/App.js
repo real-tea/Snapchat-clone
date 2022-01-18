@@ -40,8 +40,10 @@ function App() {
 
   return (
     <div className="App">
+      <Router>
       {!user ? <Login/> : (
-         <Router>
+        <>
+        <img src = "https://knilt.arcc.albany.edu/images/9/95/1-snapchat.jpg" alt = ""/>         
          <div className = "app__body">
            
    
@@ -56,9 +58,10 @@ function App() {
              <Route path = "/chats/view" element = { <ChatView/> }></Route>
            </Routes>
          </div>
-       </Router>
+         </>
+
       )}
-       
+       </Router>
       
     </div>
   );
