@@ -68,7 +68,7 @@ const Chats = () => {
             <RadioButtonUncheckedIcon
                     className = "chats__takePicIcon"
                     onClick = {takeSnap}
-                    fontsize = 'large'
+                    fontSize = 'large'
                     />
         </div>
     )

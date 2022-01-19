@@ -43,11 +43,14 @@ function App() {
       <Router>
       {!user ? <Login/> : (
         <>
-        <img src = "https://knilt.arcc.albany.edu/images/9/95/1-snapchat.jpg" alt = ""/>         
+        <img 
+        className = "app__logo"
+        src = "https://knilt.arcc.albany.edu/images/9/95/1-snapchat.jpg" 
+        alt = ""/>         
          <div className = "app__body">
-           
-   
-           {/* A <Switch> looks through its children <Route>s and
+           <div className= "app__bodyBackground">
+
+               {/* A <Switch> looks through its children <Route>s and
                renders the first one that matches the current URL. */}
            <Routes> {/* changed from Switch to routes in react-router-dom v6?  */}
              <Route path = "/chats" element = { <Chats/> }></Route>
@@ -55,8 +58,13 @@ function App() {
              <Route path = "/preview" element = { <Preview/> }>
                {/* <Preview/> */}
              </Route>
-             <Route path = "/chats/view" element = { <ChatView/> }></Route>
+             <Route path = "/chats/view" element = {<ChatView/>}></Route>
            </Routes>
+           
+           </div>
+           
+   
+          
          </div>
          </>
 
