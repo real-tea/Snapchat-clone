@@ -27,9 +27,11 @@ const Preview = () => {
 
     const cameraImage = useSelector(selectCameraImage);
     useEffect(()=>{
+
         if (!cameraImage){
             navigate('/');
         }
+
     },[ cameraImage , navigate ])
 
     const closePreview = () => {

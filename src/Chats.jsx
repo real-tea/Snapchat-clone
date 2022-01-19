@@ -39,6 +39,7 @@ const Chats = () => {
         <div className = "chats">
             <div className = "chats__header">
                 <Avatar src = { user.profilePic } onClick = {()=>{
+                    user.signOut();
                     auth.signOut();
                 } }className = "chats__avatar"/>
                 <div className = "chats__search">
@@ -61,7 +62,7 @@ const Chats = () => {
                     timestamp = {timestamp}
                     profilPic = {profilePic}
                     imageUrl = {imageUrl}
-                    read = { read} 
+                    read = {read} 
                     />
                 )
                 ) }
