@@ -42,7 +42,6 @@ const Preview = () => {
         const uploadTask = storage
         .ref(`posts/${id}`)
         .putString(cameraImage,"data_url"); 
-    
     uploadTask.on(
         "state_changed",
         null,
@@ -59,8 +58,9 @@ const Preview = () => {
                     imageUrl : url,
                     username : "Akash",
                     read : false,
+                    profilePic : user.profilePic,
                     timestamp : firebase.firestore.FieldValue.serverTimestamp(),
-                    profilePic : user.ProfilePic
+                    
                     //profile pic -> after firebase authentication 
                 });
                 navigate("/chats");

@@ -3,13 +3,14 @@ import './chats.css';
 import { Avatar } from "@material-ui/core";
 import SearchIcon from "@material-ui/icons/Search";
 import ChatBubbleIcon from "@material-ui/icons/ChatBubble";
-import { db } from './firebase';
+import { db , auth } from './firebase';
 import Chat from './Chat';
 import { useSelector , useDispatch } from 'react-redux';
 import { selectUser } from './features/appSlice';
 import RadioButtonUncheckedIcon from '@material-ui/icons/RadioButtonUnchecked';
 import { useNavigate } from 'react-router-dom';
 import { resetCameraImage } from './features/cameraSlice';
+
 
 const Chats = () => {
 
@@ -18,7 +19,7 @@ const Chats = () => {
     const dispatch = useDispatch();
     const Navigate = useNavigate();
 
-    useEffect(() =>{
+    useEffect(() =>{ 
         db.collection('posts').orderBy('timestamp','desc').onSnapshot((snap )=>
             setPosts(snap.docs.map((doc) =>({ 
                 id : doc.id,
@@ -38,7 +39,7 @@ const Chats = () => {
         <div className = "chats">
             <div className = "chats__header">
                 <Avatar src = { user.profilePic } onClick = {()=>{
-                    user.signOut();
+                    auth.signOut();
                 } }className = "chats__avatar"/>
                 <div className = "chats__search">
                     <SearchIcon className = "chats__SearchIcon"/>
